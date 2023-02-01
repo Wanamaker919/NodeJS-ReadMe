@@ -50,37 +50,12 @@ const questions = [
                  "{example-3}"
             ]
         },
-        {
-            type: 'input',
-            message: 'What is your usage information of your Project',
-            name: 'username',
-         
-        },
-        {
-            type: 'input',
-            message: 'What is your usage information of your Project',
-            name: 'username',
-         
-        },
-        {
-            type: 'input',
-            message: 'What is your usage information of your Project',
-            name: 'username',
-         
-        },
-
-
-
-
-
-
-        
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     
-    fs.writeFile( fileName, data, (error, data) =>
+    fs.writeFile(fileName, data, (error, data) =>
   error ? console.error(error) : console.log(data)
 );
 
@@ -89,7 +64,8 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then((answers) => {  console.log('\nOrder receipt:'); 
-    writeToFile("index.html", answers)
+    let userInput = JSON.stringify(answers, null, '  ')
+    writeToFile("index.html", userInput)
     console.log(JSON.stringify(answers, null, '  '));});
 }
 
